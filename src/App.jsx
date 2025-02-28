@@ -1,13 +1,21 @@
 import React from 'react';
 import Clock from './components/Clock';
 import Header from './components/Header';
+import Background from './components/Background';
+import Weather from './components/Weather';
 
+import './styles/Layout.css'
 function App(props) {
   return (
-    <div>
+    <>
+      <Background></Background>
       <Clock></Clock>
       <Header></Header>
-    </div>
+      <Weather></Weather>
+      <div className='container'>
+        {/* <TodoList></TodoList> */}
+      </div>
+    </>
   );
 }
 
