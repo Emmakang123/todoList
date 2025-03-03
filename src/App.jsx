@@ -11,9 +11,9 @@ function App(props) {
   return (
     <>
       <Background></Background>
+      <Weather></Weather>
       <Clock></Clock>
       <Header></Header>
-      <Weather></Weather>
       <div className='container'>
         <TodoList></TodoList>
       </div>
