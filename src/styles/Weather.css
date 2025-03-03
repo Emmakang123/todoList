@@ -1,0 +1,29 @@
+.weather-widget{
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+.weather-content h2{
+    margin : 0;
+}
+.weather-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.error{
+    color: red;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+/* 날씨 설명 (clear sky 등) */
+.weather-desc {
+    /* font-family: newFont; */
+    font-size: 1.125rem;
+    font-style: italic;
+    margin-top: 5px;
+    text-transform: capitalize;
+  }

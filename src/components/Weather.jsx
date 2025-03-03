@@ -57,7 +57,7 @@ function Weather(props) {
                 <h2>{weather.name}</h2>
                 <div className='weather-info'>
                     <img className='weather-icon' src={weather.icon} alt={weather.desc}/>
-                    <p className='weather-temp'>{weather.temp}</p>
+                    <p className='weather-temp'>{weather.temp}°C</p>
                 </div>
                 <p className='weather-desc'>{weather.desc}</p>
             </div>) : (

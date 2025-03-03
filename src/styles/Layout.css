@@ -9,3 +9,7 @@
     left : 0;
     filter: blur(2px);
 }
+@font-face {
+    font-family: newFont;
+    src: url('./fonts/newFont.ttf') format("truetype");
+}
