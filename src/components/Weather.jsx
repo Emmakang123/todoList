@@ -54,12 +54,12 @@ function Weather(props) {
                 <div className='error'>{errMsg}</div>
             ) : weather ? (
             <div className='weather-content'>   
-                <h2>{weather.name}</h2>
                 <div className='weather-info'>
                     <img className='weather-icon' src={weather.icon} alt={weather.desc}/>
                     <p className='weather-temp'>{weather.temp}°C</p>
                 </div>
-                <p className='weather-desc'>{weather.desc}</p>
+                <p className='weather-site'>{weather.name}</p>
+                {/* <p className='weather-desc'>{weather.desc}</p> */}
             </div>) : (
                 <p>WAIT !! Almost DONE !!!!</p>
             )}

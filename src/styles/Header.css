@@ -1,0 +1,30 @@
+.greeting-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px; 
+  }
+  
+  .greeting-input {
+    width: 30%;  
+    background: none;
+    border: none;    
+    border-bottom: 1px solid white; 
+    outline: none; 
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    padding: 0.5rem;
+  }
+  
+  .greeting-input::placeholder {
+    color: gray; 
+    opacity: 0.7;
+  }
+  
+  .greeting-error {
+    margin-top: 10px;
+    color: red;
+    font-size: 0.9rem;
+  }

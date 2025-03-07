@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 function TodoList(props) {
     const [task, setTask] = useState("");
     const [taskList, setTaskList] = useState([]);
+    const isFirstRender = useRef(true);
 
     const getNextId = () => {
         let nextId = localStorage.getItem("nextId");
@@ -17,28 +18,33 @@ function TodoList(props) {
     }
     
     useEffect( () => {
-        const savedList = JSON.parse(localStorage.getItem("taskList"));
-        
-        if(savedList) {
-            setTaskList(savedList);
+        if(isFirstRender){
+            isFirstRender.current = false; 
+            const savedList = JSON.parse(localStorage.getItem("taskList"));
+            console.log("savedList ::::: " , savedList)
+            if(savedList && savedList.length > 0) {
+                setTaskList(savedList);
+            }
         }
     }, []);
 
     // when updated taskList save in localstorage
     useEffect(()=>{
-        console.log("useEffect Changed taskList")
-        console.log(taskList)
-        localStorage.setItem("tastList", JSON.stringify(taskList));
+        if(isFirstRender.current && taskList.length > 0)
+        console.log("localStorage에 추가됨 : ", localStorage.getItem("tastList"))
+        localStorage.setItem("taskList", JSON.stringify(taskList));
     },[taskList]);
     
     // add new Task btn
     const addTask = () =>{
         if(!task.trim()) return;
-        console.log(taskList)
         setTaskList([...taskList, {id : getNextId(), text: task} ]);
         setTask("")
     }
-    
+    const removeTask = (id) => {
+        const updatedTasks = taskList.filter(task => task.id !== id);
+        setTaskList(updatedTasks);
+    }
     return (
         <div className='todo-container'> 
             <h1>What's your focus</h1>
@@ -52,7 +58,7 @@ function TodoList(props) {
                 {taskList.map( (task)=> {
                 return(
                     <li key={task.id} className='todo-item' >
-                        <span>{task.text}</span>
+                        <span className='todo-content'>{task.text}</span>
                         <button onClick={ () => {
                             removeTask(task.id)
                         }}>remove</button>

@@ -10,11 +10,11 @@ function Header(props) {
         setName(e.target.value);
     }
     const validCheck = function(e){
-        console.log("name : ", name);
         if(name.trim() === ""){
             setError(true); // 에러메시지 노출
             return;
         }
+        setError("");
         setIsEditing(false);
         localStorage.setItem("userName", name)
 
@@ -26,15 +26,15 @@ function Header(props) {
     return (
         <div>
             {isEditing ? (
-                <form>
-                    <input type='text' placeholder='Enter your name' value={name} 
+                <form className='greeting-container'>
+                    <input className='greeting-input' type='text' 
+                    placeholder='Enter your name' value={name} 
                     onChange={changeName} 
                     onKeyDown={pressEnter}
                     // onBlur={validCheck} // focusout 
                     autoFocus
                     />
-                    <input type='submit' onClick={validCheck} value="OK"/>
-                    {error && <div >Enter Your Name!!</div>}
+                    {error && <div className='greeting-error '>Enter Your Name!!</div>}
                 </form>
             ): (<h2 onClick={function(){setIsEditing(true)}}> Hello, {name}  </h2>)}
         </div>

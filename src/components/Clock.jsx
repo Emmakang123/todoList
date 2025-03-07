@@ -4,12 +4,24 @@ function Clock(props) {
     const [time, setTime] = useState(new Date());
 
     useEffect(()=>{
-        const interval = setInterval(() => setTime(new Date),1000);
+        const updateClock = () => {
+            const now  = new Date();
+            const formattedTime = now.toLocaleTimeString("en-GB", {
+                hour:"2-digit",
+                minute : "2-digit",
+                hour12 : false // 24hours time rull
+            });
+            setTime(formattedTime);
+        }
+        updateClock();
+        
+        const interval = setInterval(updateClock, 1000);
+
         return() => clearInterval(interval);
-    })
+    },[])
     return (
-        <div>
-            <h1 style={{textAlign:'center'}}>{time.toLocaleString()}</h1>
+        <div className='clock-container'>
+            <h1 className='clock'>{time.toLocaleString()}</h1>
         </div>
     );
 }

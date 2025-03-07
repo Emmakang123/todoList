@@ -1,15 +1,29 @@
 .background{
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     position: fixed;
-    background-position: center;
-    background-size: cover;
     z-index: -1;
     top : 0;
     left : 0;
     filter: blur(2px);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 @font-face {
     font-family: newFont;
     src: url('./fonts/newFont.ttf') format("truetype");
 }
+/* ✅ 태블릿 화면 대응 */
+@media (max-width: 1024px) {
+    .background {
+      background-attachment: fixed; 
+    }
+  }
+  
+  /* ✅ 모바일 화면 대응 */
+  @media (max-width: 768px) {
+    .background {
+      background-position: top center; 
+    }
+  }

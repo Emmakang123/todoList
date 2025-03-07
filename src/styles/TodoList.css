@@ -1,0 +1,12 @@
+.todo-item{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+.todo-content{
+    background-color: transparent;
+    border: 1px solid #cecece;
+    border-radius: 10px;
+    width: 80%;
+    color: white;
+}

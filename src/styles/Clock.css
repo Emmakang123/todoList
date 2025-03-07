@@ -1,0 +1,29 @@
+.clock-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 250px;  ✅ 시계 전체 영역 너비 설정 */
+    min-height: 120px; /* ✅ 시계 전체 영역 높이 설정 */
+    padding: 10px 0;
+  }
+  
+  .clock {
+    font-size: 4rem; /* ✅ 글자 크기 */
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+  }
+    /* ✅ 모바일 화면 대응 */
+    @media (min-width: 820px) {
+    .clock {
+        font-size: 9rem;
+    }
+}
+   /* ✅ 모바일 화면 대응 */
+   @media (max-width: 450px) {
+    .clock {
+        font-size: 60px;
+        font-weight: 400;
+        letter-spacing: 0px;
+    }
+}

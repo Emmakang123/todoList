@@ -7,6 +7,10 @@ import TodoList from './components/TodoList';
 
 import './styles/Layout.css'
 import './styles/Weather.css'
+import './styles/Clock.css'
+import './styles/Header.css'
+import './styles/TodoList.css'
+
 function App(props) {
   return (
     <>
